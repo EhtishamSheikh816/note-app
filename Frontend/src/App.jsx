@@ -10,7 +10,6 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import NotFound from "./pages/NotFound";
 
 function App() {
-
   const router = createBrowserRouter([
     {
       path: "/",
