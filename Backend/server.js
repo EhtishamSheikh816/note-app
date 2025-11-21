@@ -19,7 +19,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "https://note-app-backend-beta.vercel.app/",
+    origin: "https://ehti-note-app.vercel.app/",
     credentials: true,
   })
 );
