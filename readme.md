@@ -25,6 +25,3 @@ A modern Note App built with **React**, **Tailwind CSS**, **Node.js**, **Express
 - **Other:** Axios, React Hot Toast, Lucide Icons
 
 ---
-
-## Project Structure
-
