@@ -38,9 +38,9 @@ const SignUp = () => {
         withCredentials: true,
       });
 
+      navigate("/dashboard");
       toast.success("Account created successfully!");
       window.location.reload();
-      navigate("/dashboard");
     } catch (err) {
       console.error(err);
       toast.error(err.response?.data?.message || "Something went wrong");
