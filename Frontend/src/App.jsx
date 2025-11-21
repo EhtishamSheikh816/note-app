@@ -10,6 +10,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import NotFound from "./pages/NotFound";
 
 function App() {
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -44,7 +45,7 @@ function App() {
     <>
       <RouterProvider router={router} />
 
-      <Toaster position="top-right" reverseOrder={false} />
+      <Toaster position="top-right " reverseOrder={false} />
     </>
   );
 }
