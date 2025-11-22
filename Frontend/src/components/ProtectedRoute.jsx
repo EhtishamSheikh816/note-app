@@ -29,6 +29,8 @@ const ProtectedRoute = ({ children }) => {
 
   if (loading) return <Loader />;
 
+  if (authenticated) return <Navigate to="/dashboard" replace />;
+
   if (!authenticated) return <Navigate to="/login" replace />;
 
   return children;
