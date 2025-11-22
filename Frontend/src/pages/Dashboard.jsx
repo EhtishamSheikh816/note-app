@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Plus } from "lucide-react";
+import { Plus, Search } from "lucide-react";
 import NoteModal from "../components/NoteModal";
 import ReadMoreModal from "../components/ReadMoreModal";
 import axios from "axios";
@@ -20,6 +20,8 @@ const Dashboard = () => {
   // NEW: Read More Modal States
   const [readMoreOpen, setReadMoreOpen] = useState(false);
   const [selectedNote, setSelectedNote] = useState(null);
+
+  const [searchQuery, setSearchQuery] = useState("");
 
   const addNote = async (note) => {
     try {
@@ -126,6 +128,18 @@ const Dashboard = () => {
                 All Notes
               </h2>
               <p className="text-gray-600">You have {notes.length} notes</p>
+            </div>
+
+            {/* Search Bar - Right Side */}
+            <div className="relative w-full sm:w-80">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search notes..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all placeholder-gray-400"
+              />
             </div>
 
             {/* New Note Button */}
