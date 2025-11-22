@@ -7,6 +7,7 @@ const NoteList = ({
   setReadMoreOpen,
   deleteNote,
   onEdit,
+  togglePin,
 }) => {
   return (
     <div
@@ -17,11 +18,24 @@ const NoteList = ({
         <h3 className="font-semibold text-gray-800 text-lg line-clamp-1">
           {notes.title}
         </h3>
-        <button className="opacity-0 sm:group-hover:opacity-100 transition-opacity p-1 hover:bg-white/50 rounded">
-          <Pin className="w-5 h-5 text-gray-600" />
+
+        {/* Pin Button */}
+        <button
+          onClick={() => togglePin(notes._id)}
+          className="opacity-100 transition-opacity p-1 hover:bg-white/50 rounded"
+        >
+          <Pin
+            className={`w-5 h-5 ${
+              notes.isPinned
+                ? "text-yellow-600 fill-yellow-600"
+                : "text-gray-600"
+            }`}
+          />
         </button>
       </div>
+
       <p className="text-sm text-gray-700 line-clamp-2">{notes.content}</p>
+
       {/* READ MORE BUTTON */}
       <button
         onClick={() => {

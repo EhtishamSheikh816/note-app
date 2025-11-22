@@ -120,3 +120,29 @@ export const deleteAllNote = async (req, res) => {
     });
   }
 };
+
+export const togglePin = async () => {
+  try {
+    const note = Note.findOne({ _id: req.params.id, user: req.user.id });
+
+    if (!note) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Note not found" });
+    }
+
+    await note.save();
+
+    res.status(200).json({
+      success: true,
+      message: note.isPinned ? "Note pinned" : "Note unpinned",
+      note,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Something went wrong",
+      error: error.message,
+    });
+  }
+};

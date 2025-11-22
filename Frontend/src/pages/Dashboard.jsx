@@ -88,6 +88,33 @@ const Dashboard = () => {
     }
   };
 
+  const togglePin = async (noteId) => {
+    try {
+      const res = await axios.put(
+        `${API}/note/pin/${noteId}`,
+        {},
+        { withCredentials: true }
+      );
+
+      setNotes((prev) =>
+        prev.map((item) =>
+          item._id === noteId
+            ? { ...item, isPinned: res.data.note.isPinned }
+            : item
+        )
+      );
+
+      toast.success(res.data.message);
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to pin/unpin note");
+    }
+  };
+
+  const sortedNotes = [...notes].sort((a, b) => {
+    return (b.isPinned ? 1 : 0) - (a.isPinned ? 1 : 0);
+  });
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
       <main className="flex-1 p-4 sm:p-6 lg:p-8">
@@ -115,7 +142,7 @@ const Dashboard = () => {
             <NoNotes isOpen={() => setModalOpen(true)} />
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-              {notes.map((note) => (
+              {sortedNotes.map((note) => (
                 <NoteList
                   notes={note}
                   setSelectedNote={setSelectedNote}
@@ -125,6 +152,7 @@ const Dashboard = () => {
                     setEditingNote(note);
                     setEditOpen(true);
                   }}
+                  togglePin={togglePin}
                 />
               ))}
             </div>

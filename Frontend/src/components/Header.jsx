@@ -49,17 +49,17 @@ const Header = ({ onLogout }) => {
 
           {/* Desktop Menu (Not Logged-in) */}
           {!user && (
-            <div className="hidden md:flex items-center space-x-8">
-              {["Features", "Pricing", "About", "Contact"].map((item) => (
-                <a
+            <nav className="hidden md:flex items-center gap-8">
+              {["About", "Features", "Pricing", "Contact"].map((item) => (
+                <Link
                   key={item}
-                  href="#"
-                  className="text-gray-600 hover:text-purple-600 transition-colors font-medium"
+                  to={`/${item.toLowerCase()}`}
+                  className="text-gray-700 hover:text-purple-600 transition font-medium"
                 >
                   {item}
-                </a>
+                </Link>
               ))}
-            </div>
+            </nav>
           )}
 
           {/* Right Side Buttons */}

@@ -8,6 +8,10 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import NotFound from "./pages/NotFound";
+import Features from "./pages/Features";
+import About from "./pages/About";
+import Pricing from "./pages/Pricing";
+import Contact from "./pages/Contact";
 
 function App() {
   const router = createBrowserRouter([
@@ -27,6 +31,22 @@ function App() {
         {
           path: "login",
           element: <Login />,
+        },
+        {
+          path: "features",
+          element: <Features />,
+        },
+        {
+          path: "about",
+          element: <About />,
+        },
+        {
+          path: "pricing",
+          element: <Pricing />,
+        },
+        {
+          path: "contact",
+          element: <Contact />,
         },
         {
           path: "dashboard",
