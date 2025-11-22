@@ -121,16 +121,22 @@ export const deleteAllNote = async (req, res) => {
   }
 };
 
-export const togglePin = async () => {
+export const togglePin = async (req, res) => {
   try {
-    const note = Note.findOne({ _id: req.params.id, user: req.user.id });
+    const note = await Note.findOne({
+      _id: req.params.id,
+      user: req.user.id,
+    });
 
     if (!note) {
-      return res
-        .status(404)
-        .json({ success: false, message: "Note not found" });
+      return res.status(404).json({
+        success: false,
+        message: "Note not found",
+      });
     }
 
+    // Toggle pin
+    note.isPinned = !note.isPinned;
     await note.save();
 
     res.status(200).json({
@@ -138,11 +144,12 @@ export const togglePin = async () => {
       message: note.isPinned ? "Note pinned" : "Note unpinned",
       note,
     });
-  } catch (error) {
+  } catch (err) {
+    console.error(err); // <-- check console for real error
     res.status(500).json({
       success: false,
       message: "Something went wrong",
-      error: error.message,
+      error: err.message,
     });
   }
 };
