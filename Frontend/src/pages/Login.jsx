@@ -41,7 +41,7 @@ const Login = () => {
       {/* Back Button */}
       <button
         onClick={() => navigate(-1)}
-        className="fixed top-24 left-6 flex items-center space-x-2 text-gray-700 hover:text-purple-600 transition-colors bg-white px-4 py-2 rounded-lg shadow-md hover:shadow-lg z-50"
+        className="fixed top-36 md:top-24 left-7 md:left-6 flex items-center space-x-2 text-gray-700 hover:text-purple-600 transition-colors bg-white px-4 py-2 rounded-lg shadow-md hover:shadow-lg z-40"
       >
         <ArrowLeft className="w-5 h-5" />
         <span className="font-medium">Back</span>

@@ -228,10 +228,10 @@ const Footer = () => {
             <div>
               <p className="text-sm text-gray-400 mb-1">Email Us</p>
               <a
-                href="mailto:support@noteapp.com"
+                href="mailto:uxonicsolutions@gmail.com"
                 className="text-white hover:text-blue-400 transition-colors text-sm font-medium"
               >
-                support@noteapp.com
+                uxonicsolutions@gmail.com
               </a>
             </div>
           </div>
@@ -243,10 +243,10 @@ const Footer = () => {
             <div>
               <p className="text-sm text-gray-400 mb-1">Call Us</p>
               <a
-                href="tel:+1234567890"
+                href="tel:+923187855360"
                 className="text-white hover:text-green-400 transition-colors text-sm font-medium"
               >
-                +1 (234) 567-890
+                +92 (318) 785-5360
               </a>
             </div>
           </div>
@@ -269,11 +269,25 @@ const Footer = () => {
       <div className="border-t border-gray-700 bg-slate-900/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-gray-400 text-center md:text-left flex items-center">
-              © {currentYear} NoteApp. All rights reserved. Made with
-              <Heart className="w-4 h-4 mx-1 text-red-500 fill-red-500 inline" />
-              by the NoteApp Team
+            <p className="text-sm text-gray-500 text-center md:text-left flex flex-wrap items-center justify-center md:justify-start gap-1">
+              © {currentYear}{" "}
+              <span className="font-semibold text-gray-700">NoteApp</span>. All
+              rights reserved.
+              <span className="flex items-center gap-1">
+                Made with
+                <Heart className="w-4 h-4 text-red-500 fill-red-500 inline" />
+                by
+                <a
+                  href="https://uxonic-solutions.vercel.app"
+                  target="_blank"
+                  className="font-medium bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:opacity-80 transition"
+                >
+                  Uxonic Solutions
+                </a>
+                Team
+              </span>
             </p>
+
             <div className="flex flex-wrap justify-center gap-6">
               <a
                 href="#"
