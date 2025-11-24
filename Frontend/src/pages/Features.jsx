@@ -18,6 +18,7 @@ import {
   Globe,
   Sparkles,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Features = () => {
   const mainFeatures = [
@@ -176,12 +177,18 @@ const Features = () => {
             NoteApp
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="bg-white text-purple-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl text-lg w-full sm:w-auto">
+            <Link
+              to="signup"
+              className="bg-white text-purple-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl text-lg w-full sm:w-auto"
+            >
               Start Free Trial
-            </button>
-            <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transition-all text-lg w-full sm:w-auto">
+            </Link>
+            <Link
+              to="pricing"
+              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transition-all text-lg w-full sm:w-auto"
+            >
               View Pricing
-            </button>
+            </Link>
           </div>
         </div>
 

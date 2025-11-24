@@ -8,6 +8,7 @@ import {
   Star,
   CheckCircle,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const features = [
@@ -53,10 +54,13 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-              <button className="flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl">
+              <Link
+                to="/signup"
+                className="flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl"
+              >
                 <span>Get Started Free</span>
                 <ArrowRight className="w-5 h-5" />
-              </button>
+              </Link>
               <button className="flex items-center justify-center space-x-2 bg-white text-gray-700 px-8 py-4 rounded-lg font-semibold hover:bg-gray-50 transition-all shadow-md border-2 border-gray-200">
                 <Play className="w-5 h-5" />
                 <span>Watch Demo</span>

@@ -93,7 +93,7 @@ const Header = ({ onLogout }) => {
           )}
 
           {/* Right Buttons (Desktop) */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center justify-center space-x-4">
             {!isLoggedIn ? (
               <>
                 <Link
@@ -114,7 +114,7 @@ const Header = ({ onLogout }) => {
               <>
                 <Link
                   to="/dashboard"
-                  className="flex items-center space-x-2 text-gray-600 hover:text-purple-600 transition-colors font-medium"
+                  className="flex items-center justify-center text-center space-x-2 text-gray-600 hover:text-purple-600 transition-colors font-medium"
                 >
                   <LayoutDashboard className="w-5 h-5" />
                   <span>Dashboard</span>
@@ -122,7 +122,7 @@ const Header = ({ onLogout }) => {
 
                 <button
                   onClick={onLogout}
-                  className="flex items-center space-x-2 text-red-600 hover:text-red-700 transition-colors font-medium"
+                  className="flex items-center justify-center space-x-2 text-red-600 hover:text-red-700 transition-colors font-medium"
                 >
                   <LogOut className="w-5 h-5" />
                   <span>Logout</span>

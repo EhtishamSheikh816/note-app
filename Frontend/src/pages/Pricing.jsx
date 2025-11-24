@@ -10,9 +10,12 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Pricing = () => {
   const [isAnnual, setIsAnnual] = useState(true);
+
+  const navigate = useNavigate();
 
   const plans = [
     {
@@ -211,6 +214,7 @@ const Pricing = () => {
               </div>
 
               <button
+                onClick={() => navigate("/signup")}
                 className={`w-full py-3 rounded-xl font-semibold transition-all mb-6 ${
                   plan.popular
                     ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 shadow-md hover:shadow-lg"
@@ -266,13 +270,19 @@ const Pricing = () => {
             dedicated support
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="bg-white text-purple-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl text-lg w-full sm:w-auto flex items-center justify-center space-x-2">
+            <Link
+              to="contact"
+              className="bg-white text-purple-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl text-lg w-full sm:w-auto flex items-center justify-center space-x-2"
+            >
               <span>Contact Sales</span>
               <ArrowRight className="w-5 h-5" />
-            </button>
-            <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transition-all text-lg w-full sm:w-auto">
+            </Link>
+            <Link
+              to="signup"
+              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transition-all text-lg w-full sm:w-auto"
+            >
               Schedule Demo
-            </button>
+            </Link>
           </div>
         </div>
 
