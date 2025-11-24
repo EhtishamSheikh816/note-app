@@ -113,6 +113,25 @@ const Dashboard = () => {
     }
   };
 
+  const handleSearch = async (query) => {
+    try {
+      if (!query) {
+        // If search is empty, load all notes
+        getNotes();
+        return;
+      }
+
+      const res = await axios.get(`${API}/note/search?query=${query}`, {
+        withCredentials: true,
+      });
+
+      setNotes(res.data.notes);
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to search notes");
+    }
+  };
+
   const sortedNotes = [...notes].sort((a, b) => {
     return (b.isPinned ? 1 : 0) - (a.isPinned ? 1 : 0);
   });
@@ -137,7 +156,10 @@ const Dashboard = () => {
                 type="text"
                 placeholder="Search notes..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  handleSearch(e.target.value); // call search whenever user types
+                }}
                 className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all placeholder-gray-400"
               />
             </div>

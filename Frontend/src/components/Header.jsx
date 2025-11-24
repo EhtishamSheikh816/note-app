@@ -84,7 +84,7 @@ const Header = ({ onLogout }) => {
               <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
                 <User className="w-5 h-5 text-white" />
               </div>
-              <div className="flex flex-row items-center py-2 space-y-1 text-center">
+              <div className="flex items-center py-2 space-x-1 text-center">
                 <span className="animate-wave text-xl">👋</span>
                 <span className="text-gray-800 font-medium">Welcome!</span>
               </div>

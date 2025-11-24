@@ -153,3 +153,35 @@ export const togglePin = async (req, res) => {
     });
   }
 };
+
+export const searchNotes = async (req, res) => {
+  try {
+    const { query } = req.query; // ?query=something
+
+    if (!query) {
+      return res.status(400).json({
+        success: false,
+        message: "Search query is required",
+      });
+    }
+
+    const notes = await Note.find({
+      user: req.user.id,
+      $or: [
+        { title: { $regex: query, $options: "i" } },
+        { content: { $regex: query, $options: "i" } },
+      ],
+    }).sort({ isPinned: -1, createdAt: -1 });
+
+    res.status(200).json({
+      success: true,
+      notes,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Something went wrong",
+      error: error.message,
+    });
+  }
+};

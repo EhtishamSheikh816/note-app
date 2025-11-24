@@ -8,6 +8,7 @@ import {
   updateNote,
   deleteAllNote,
   togglePin,
+  searchNotes,
 } from "../controllers/noteController.js";
 
 const router = express.Router();
@@ -18,5 +19,6 @@ router.delete("/notes/:id", tokenVerification, deleteNote);
 router.put("/notes/:id", tokenVerification, updateNote);
 router.delete("/allNotes", tokenVerification, deleteAllNote);
 router.put("/pin/:id", tokenVerification, togglePin);
+router.get("/search", tokenVerification, searchNotes);
 
 export default router;
