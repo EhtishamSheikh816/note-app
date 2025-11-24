@@ -80,7 +80,7 @@ const Header = ({ onLogout }) => {
 
           {/* Center Username (Desktop) – Logged IN */}
           {isLoggedIn && (
-            <div className="hidden md:flex items-center space-x-2 bg-gradient-to-r from-blue-50 to-purple-50 px-4 py-2 rounded-lg">
+            <div className="hidden md:flex items-center space-x-2 bg-gradient-to-r from-blue-50 to-purple-50 px-4 py-1 rounded-lg">
               <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
                 <User className="w-5 h-5 text-white" />
               </div>
